@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    餐廳清單
+{% endblock %}
+
+{% block content %}
+{% for restaurant in restaurants %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-title">
+                <h4>{{ restaurant['name'] }}</h4>
+            </div>
+            <p class="text-muted ">
+                描述：{{ restaurant['description'] }}
+
+            </p>
+            <p class="text-muted ">
+                區域：{{ restaurant['city'] }}、{{ restaurant['area'] }}
+
+            </p>
+            <div class="button-list">
+                <div class="btn-group">
+                    <a href="{{ restaurant['site_url'] }}" class="btn btn-visit" target="_blank">餐廳網站</a>
+                    <a href="/edit-restaurant?id={{ restaurant['id'] }}" class="btn btn-primary">編輯</a>
+                    <a href="/delete-restaurant?id={{ restaurant['id'] }}" onclick="return confirm('delete?')" class="btn btn-danger">刪除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6" style="margin-bottom: 50px;">
+        <a href="/create-restaurant" class="btn btn-primary btn-block">新增餐廳清單</a>
+    </div>
+</div>
+{% endblock %}

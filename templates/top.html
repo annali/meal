@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Top 5
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <div class="card">
+            <div class="card-title">
+                <h4>Top 5</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>餐廳名稱</th>
+                            <th>描述</th>
+                            <th>網站導覽</th>
+                            <th>抽中次數</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for restaurant in restaurants %}
+                            <tr>
+                                <td scope="row">{{ loop.index }}</td>
+                                <td>{{ restaurant['name'] }}</td>
+                                <td><span class="badge badge-secondary">{{ restaurant['description'] }}</span></td>
+                                <td><a href="{{ restaurant['site_url'] }}">網站導覽</a></td>
+                                <td>{{ restaurant['draw'] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

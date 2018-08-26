@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    美食選擇
+{% endblock %}
+
+{% block content %}
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="max-width: 700px;">
+    <h1 class="display-4">{{ now|meal }}想吃什麼？</h1>
+    <p class="lead">若您尚不知{{ now|meal }}該選擇什麼，點擊下面的按鈕，系統將進行隨機挑選</p>
+    <a href="/draw" class="btn btn-lg btn-primary">選擇開始</a>
+
+</div>
+{% endblock %}
